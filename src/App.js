@@ -42,10 +42,8 @@ class App extends Component {
 	}
 
 	handleChange = (event) => {
-		console.log(event.target.value, this.state.change.multiplier);
-		const number = parseFloat(event.target.value);
+		const number = parseFloat(event.target.value) || 0;
 		const amount = number * parseFloat(this.state.change.multiplier);
-		console.log(this.state.change);
 		this.setState(
 			{
 				change: {
@@ -59,7 +57,7 @@ class App extends Component {
 	};
 
 	handleFives = (event) => {
-		const number = parseFloat(event.target.value);
+		const number = parseFloat(event.target.value) || 0;
 		const amount = number * this.state.fives.multiplier;
 		this.setState(
 			{
@@ -73,7 +71,7 @@ class App extends Component {
 		);
 	};
 	handleTens = (event) => {
-		const number = parseFloat(event.target.value);
+		const number = parseFloat(event.target.value) || 0;
 		const amount = number * this.state.tens.multiplier;
 		this.setState(
 			{
@@ -87,7 +85,7 @@ class App extends Component {
 		);
 	};
 	handleTwenties = (event) => {
-		const number = parseFloat(event.target.value);
+		const number = parseFloat(event.target.value) || 0;
 		const amount = number * this.state.twenties.multiplier;
 		this.setState(
 			{
@@ -101,7 +99,7 @@ class App extends Component {
 		);
 	};
 	handleFifties = (event) => {
-		const number = parseFloat(event.target.value);
+		const number = parseFloat(event.target.value) || 0;
 		const amount = number * this.state.fifties.multiplier;
 		this.setState(
 			{
@@ -138,7 +136,7 @@ class App extends Component {
 					<a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
 						Learn React
 					</a>
-					<h1> Total Amount:{this.state.totalAmount}</h1>
+					<h1> Total Amount:{this.state.totalAmount.toLocaleString()}</h1>
 					<Count handleAmount={this.handleChange} bill={this.state.change} />
 					<Count handleAmount={this.handleFives} bill={this.state.fives} />
 					<Count handleAmount={this.handleTens} bill={this.state.tens} />
