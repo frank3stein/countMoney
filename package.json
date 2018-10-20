@@ -7,8 +7,10 @@
 		"react-dom": "^16.5.2",
 		"react-scripts": "2.0.5"
 	},
-	"homepage": "https://frank3stein.github.io/countMoney/",
+	"homepage": "https://frank3stein.github.io/countMoney",
 	"scripts": {
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
@@ -17,5 +19,8 @@
 	"eslintConfig": {
 		"extends": "react-app"
 	},
-	"browserslist": [ ">0.2%", "not dead", "not ie <= 11", "not op_mini all" ]
+	"browserslist": [ ">0.2%", "not dead", "not ie <= 11", "not op_mini all" ],
+	"devDependencies": {
+		"gh-pages": "^2.0.1"
+	}
 }
