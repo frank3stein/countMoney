@@ -1,7 +1,7 @@
 {
   "main.css": "/countMoney/static/css/main.2fb5c682.chunk.css",
-  "main.js": "/countMoney/static/js/main.9df60a67.chunk.js",
-  "main.js.map": "/countMoney/static/js/main.9df60a67.chunk.js.map",
+  "main.js": "/countMoney/static/js/main.5125cbab.chunk.js",
+  "main.js.map": "/countMoney/static/js/main.5125cbab.chunk.js.map",
   "static/js/1.14dc7dd2.chunk.js": "/countMoney/static/js/1.14dc7dd2.chunk.js",
   "static/js/1.14dc7dd2.chunk.js.map": "/countMoney/static/js/1.14dc7dd2.chunk.js.map",
   "runtime~main.js": "/countMoney/static/js/runtime~main.3aa1aab3.js",
@@ -9,6 +9,6 @@
   "static/media/logo.svg": "/countMoney/static/media/logo.5d5d9eef.svg",
   "static/css/main.2fb5c682.chunk.css.map": "/countMoney/static/css/main.2fb5c682.chunk.css.map",
   "index.html": "/countMoney/index.html",
-  "precache-manifest.8996a146f453658536a8a1611d44fad0.js": "/countMoney/precache-manifest.8996a146f453658536a8a1611d44fad0.js",
+  "precache-manifest.3d41c85fdd6b22160e778700dc6bb448.js": "/countMoney/precache-manifest.3d41c85fdd6b22160e778700dc6bb448.js",
   "service-worker.js": "/countMoney/service-worker.js"
 }
