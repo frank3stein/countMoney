@@ -8,6 +8,10 @@ class App extends Component {
 		super(props);
 		this.state = {
 			totalAmount: 0,
+			pin: {
+				name: 'PIN',
+				amount: 0
+			},
 			fifties: {
 				name: "50's",
 				number: 0,
@@ -40,6 +44,19 @@ class App extends Component {
 			}
 		};
 	}
+
+	handlePin = (event) => {
+		const amount = parseFloat(event.target.value) || 0;
+		this.setState(
+			{
+				pin: {
+					...this.state.pin,
+					amount
+				}
+			},
+			this.calculateTotal
+		);
+	};
 
 	handleChange = (event) => {
 		const number = parseFloat(event.target.value) || 0;
@@ -119,6 +136,7 @@ class App extends Component {
 			parseFloat(this.state.fives.amount) +
 			parseFloat(this.state.tens.amount) +
 			parseFloat(this.state.twenties.amount) +
+			parseFloat(this.state.pin.amount) +
 			parseFloat(this.state.fifties.amount);
 		this.setState({
 			totalAmount
@@ -136,7 +154,12 @@ class App extends Component {
 					<a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
 						Learn React
 					</a>
-					<h1> Total Amount:{this.state.totalAmount.toLocaleString()}</h1>
+					<h1> Final Amount:{this.state.totalAmount.toLocaleString()}</h1>
+					<p>
+						Total Amount - 50 kassa girl - 400 kassa + {this.state.pin.amount} PIN:{' '}
+						{this.state.totalAmount - 50 - 400}
+					</p>
+					<Count handleAmount={this.handlePin} bill={this.state.pin} />
 					<Count handleAmount={this.handleChange} bill={this.state.change} />
 					<Count handleAmount={this.handleFives} bill={this.state.fives} />
 					<Count handleAmount={this.handleTens} bill={this.state.tens} />
