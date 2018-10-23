@@ -2,15 +2,18 @@ import React from 'react';
 
 class Count extends React.Component {
 	render() {
+		const state = this.props.state;
+		const bill = this.props.name;
 		return (
 			<div>
-				<label htmlFor="change">{this.props.bill.name}</label>
-				<input name="change" type="number" onChange={this.props.handleAmount} placeholder="0" />
-				<label htmlFor="change">{this.props.bill.amount}</label>
-				{/* <p>Amount: {this.props.bill.amount}</p> */}
-				{/* <pre>
-					<code>{JSON.stringify(this.props, null)}</code>
-				</pre> */}
+				<label htmlFor="count">{state[bill].name}</label>
+				<input
+					name="count"
+					type="number"
+					onChange={(event) => this.props.handleAmount(event, state, bill)}
+					placeholder="0"
+				/>
+				<label htmlFor="count">{state[bill].amount}</label>
 			</div>
 		);
 	}

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Count from './count';
 
@@ -7,121 +6,47 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			totalAmount: 0,
 			pin: {
 				name: 'PIN',
+				multiplier: 1,
 				amount: 0
 			},
 			fifties: {
 				name: "50's",
-				number: 0,
 				multiplier: 50,
 				amount: 0
 			},
 			twenties: {
 				name: "20's",
-				number: 0,
 				multiplier: 20,
 				amount: 0
 			},
 			tens: {
 				name: "10's",
-				number: 0,
 				multiplier: 10,
 				amount: 0
 			},
 			fives: {
 				name: "5's",
-				number: 0,
 				multiplier: 5,
 				amount: 0
 			},
 			change: {
 				name: 'Change',
-				number: 0,
 				multiplier: 1,
 				amount: 0
 			}
 		};
 	}
 
-	handlePin = (event) => {
-		const amount = parseFloat(event.target.value) || 0;
-		this.setState(
-			{
-				pin: {
-					...this.state.pin,
-					amount
-				}
-			},
-			this.calculateTotal
-		);
-	};
-
-	handleChange = (event) => {
+	handleChange = (event, object, bill) => {
+		// object is the full state, bill is the key value for the bill ex. 'change' or 'tens'
 		const number = parseFloat(event.target.value) || 0;
-		const amount = number * parseFloat(this.state.change.multiplier);
+		const amount = number * parseFloat(object[bill].multiplier);
 		this.setState(
 			{
-				change: {
-					...this.state.change,
-					number,
-					amount
-				}
-			},
-			this.calculateTotal
-		);
-	};
-
-	handleFives = (event) => {
-		const number = parseFloat(event.target.value) || 0;
-		const amount = number * this.state.fives.multiplier;
-		this.setState(
-			{
-				fives: {
-					...this.state.fives,
-					number,
-					amount
-				}
-			},
-			this.calculateTotal
-		);
-	};
-	handleTens = (event) => {
-		const number = parseFloat(event.target.value) || 0;
-		const amount = number * this.state.tens.multiplier;
-		this.setState(
-			{
-				tens: {
-					...this.state.tens,
-					number,
-					amount
-				}
-			},
-			this.calculateTotal
-		);
-	};
-	handleTwenties = (event) => {
-		const number = parseFloat(event.target.value) || 0;
-		const amount = number * this.state.twenties.multiplier;
-		this.setState(
-			{
-				twenties: {
-					...this.state.twenties,
-					number,
-					amount
-				}
-			},
-			this.calculateTotal
-		);
-	};
-	handleFifties = (event) => {
-		const number = parseFloat(event.target.value) || 0;
-		const amount = number * this.state.fifties.multiplier;
-		this.setState(
-			{
-				fifties: {
-					...this.state.fifties,
+				[bill]: {
+					...object[bill],
 					number,
 					amount
 				}
@@ -138,33 +63,21 @@ class App extends Component {
 			parseFloat(this.state.twenties.amount) +
 			parseFloat(this.state.pin.amount) +
 			parseFloat(this.state.fifties.amount);
-		this.setState({
-			totalAmount
-		});
+		return totalAmount;
 	};
 
 	render() {
 		return (
 			<div className="App">
 				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
-					{/* <p>
-						Edit <code>src/App.js</code> and save to reload.
-					</p> */}
-					<a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-						Learn React
-					</a>
-					<h1> Final Amount:{this.state.totalAmount.toLocaleString()}</h1>
-					<p>
-						Total Amount - 50 kassa girl - 400 kassa + {this.state.pin.amount} PIN:{' '}
-						{this.state.totalAmount - 50 - 400}
-					</p>
-					<Count handleAmount={this.handlePin} bill={this.state.pin} />
-					<Count handleAmount={this.handleChange} bill={this.state.change} />
-					<Count handleAmount={this.handleFives} bill={this.state.fives} />
-					<Count handleAmount={this.handleTens} bill={this.state.tens} />
-					<Count handleAmount={this.handleTwenties} bill={this.state.twenties} />
-					<Count handleAmount={this.handleFifties} bill={this.state.fifties} />
+					<h1> Kassa = {this.calculateTotal().toLocaleString()}</h1>
+					<p>After costs -450 = {(this.calculateTotal() - 450).toLocaleString()}</p>
+
+					<Count name="change" handleAmount={this.handleChange} state={this.state} />
+					<Count name="fives" handleAmount={this.handleChange} state={this.state} />
+					<Count name="tens" handleAmount={this.handleChange} state={this.state} />
+					<Count name="twenties" handleAmount={this.handleChange} state={this.state} />
+					<Count name="fifties" handleAmount={this.handleChange} state={this.state} />
 				</header>
 			</div>
 		);
