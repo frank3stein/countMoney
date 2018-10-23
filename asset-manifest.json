@@ -1,14 +1,14 @@
 {
-  "main.css": "/countMoney/static/css/main.2fb5c682.chunk.css",
-  "main.js": "/countMoney/static/js/main.5125cbab.chunk.js",
-  "main.js.map": "/countMoney/static/js/main.5125cbab.chunk.js.map",
-  "static/js/1.14dc7dd2.chunk.js": "/countMoney/static/js/1.14dc7dd2.chunk.js",
-  "static/js/1.14dc7dd2.chunk.js.map": "/countMoney/static/js/1.14dc7dd2.chunk.js.map",
+  "main.css": "/countMoney/static/css/main.c718728e.chunk.css",
+  "main.js": "/countMoney/static/js/main.e8c72495.chunk.js",
+  "main.js.map": "/countMoney/static/js/main.e8c72495.chunk.js.map",
+  "static/js/1.271fe062.chunk.js": "/countMoney/static/js/1.271fe062.chunk.js",
+  "static/js/1.271fe062.chunk.js.map": "/countMoney/static/js/1.271fe062.chunk.js.map",
   "runtime~main.js": "/countMoney/static/js/runtime~main.3aa1aab3.js",
   "runtime~main.js.map": "/countMoney/static/js/runtime~main.3aa1aab3.js.map",
-  "static/media/logo.svg": "/countMoney/static/media/logo.5d5d9eef.svg",
-  "static/css/main.2fb5c682.chunk.css.map": "/countMoney/static/css/main.2fb5c682.chunk.css.map",
+  "static/media/index.css": "/countMoney/static/media/michael-discenza-199756-unsplash.b4c2647b.jpg",
+  "static/css/main.c718728e.chunk.css.map": "/countMoney/static/css/main.c718728e.chunk.css.map",
   "index.html": "/countMoney/index.html",
-  "precache-manifest.3d41c85fdd6b22160e778700dc6bb448.js": "/countMoney/precache-manifest.3d41c85fdd6b22160e778700dc6bb448.js",
+  "precache-manifest.4367a49bff6ef3fe228e45440e49b532.js": "/countMoney/precache-manifest.4367a49bff6ef3fe228e45440e49b532.js",
   "service-worker.js": "/countMoney/service-worker.js"
 }
